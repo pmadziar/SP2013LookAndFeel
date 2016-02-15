@@ -69,23 +69,7 @@ To build the master page directly from this HTML file, simply edit the page as y
 </xml><![endif]-->
     </head>
     <body>
-        <div id="ms-designer-ribbon">
-            <!--SPM:<%@Register Tagprefix="SharePoint" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
-            <div id="TurnOnAccessibility" style="display:none" class="s4-notdlg noindex">
-                <a id="linkTurnOnAcc" href="#" class="ms-accessible ms-acc-button" onclick="SetIsAccessibilityFeatureEnabled(true);UpdateAccessibilityUI();document.getElementById('linkTurnOffAcc').focus();return false;">
-                    <!--MS:<SharePoint:EncodedLiteral runat="server" text="&#60;%$Resources:wss,master_turnonaccessibility%&#62;" EncodeMethod="HtmlEncode">-->
-                    <!--ME:</SharePoint:EncodedLiteral>-->
-                </a>
-            </div>
-            <div id="TurnOffAccessibility" style="display:none" class="s4-notdlg noindex">
-                <a id="linkTurnOffAcc" href="#" class="ms-accessible ms-acc-button" onclick="SetIsAccessibilityFeatureEnabled(false);UpdateAccessibilityUI();document.getElementById('linkTurnOnAcc').focus();return false;">
-                    <!--MS:<SharePoint:EncodedLiteral runat="server" text="&#60;%$Resources:wss,master_turnoffaccessibility%&#62;" EncodeMethod="HtmlEncode">-->
-                    <!--ME:</SharePoint:EncodedLiteral>-->
-                </a>
-            </div>
-            <!--SID:02 {Ribbon Snippet}-->
-            <!--PS: Start Preview--><div class="DefaultContentBlock" style="background:rgb(0, 114, 198); color:white; width:100%; padding:8px; height:64px; overflow:hidden;">In true previews of your site, the SharePoint ribbon will be here.</div><!--PE: End Preview-->
-        </div>
+{{> spRibbon}}
         <!--MS:<SharePoint:SPSecurityTrimmedControl runat="server" AuthenticationRestrictions="AnonymousUsersOnly">-->
             <!--SPM:<wssucw:Welcome runat="server" EnableViewState="false"/>-->
         <!--ME:</SharePoint:SPSecurityTrimmedControl>-->

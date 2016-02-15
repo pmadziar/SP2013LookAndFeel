@@ -1,3 +1,4 @@
+var fs = require('fs');
 var gulp = require('gulp');
 var sass = require('gulp-sass');
 var sourcemaps = require('gulp-sourcemaps');
@@ -11,6 +12,7 @@ var handlebars = require('gulp-compile-handlebars');
 var data = require('gulp-data');
 var path = require('path');
 var flatten = require('gulp-flatten');
+var moment = require('moment');
 
 var buildDir = "/Program Files/Common Files/microsoft shared/Web Server Extensions/15/TEMPLATE/LAYOUTS/nova.gov.sp.dci";
 var jsDir = buildDir + "/js";
@@ -30,8 +32,19 @@ var compilerOptions = require("./tsconfig.json").compilerOptions;
 // 	"preserveConstEnums": true,
 // 	"sortOutput ": true
 // };
+
+// update version number and date for HB templates
 var hbData = require("./handlebars/handlebarsData.json");
 
+hbData.date = moment().format("YYYY/MM/DD HH:mm:ss");
+var version = 0;
+if(hbData.version|| hbData.version === 0){
+    version = hbData.version + 1;
+}
+
+hbData.version = version;
+
+fs.writeFileSync("./handlebars/handlebarsData.json", JSON.stringify(hbData));
 
 gulp.task('bower-files', function() {
     var bConf = {
@@ -120,7 +133,7 @@ gulp.task('handlebars', function () {
 
     return gulp.src('handlebars/*.handlebars')
         .pipe(data(function(file) {
-            templateData = hbData[path.basename(file.path)];
+            templateData = hbData;
             return templateData;
         }))
         .pipe(handlebars(templateData, options))
