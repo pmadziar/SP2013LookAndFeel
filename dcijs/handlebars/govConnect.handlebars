@@ -31,7 +31,6 @@ To build the master page directly from this HTML file, simply edit the page as y
             <!--PS: Start Preview--><link href="http://govconnect/_layouts/15/1033/styles/Themable/corev15.css" rel="stylesheet" type="text/css" /><link href="http://govconnect/_layouts/15/1033/styles/OLD/Themable/layouts.css" rel="stylesheet" type="text/css" /><link href="http://govconnect/_layouts/15/1033/styles/Themable/searchv15.css" rel="stylesheet" type="text/css" /><!--PE: End Preview-->
         <!--ME:</SharePoint:CssLink>-->
         <!-- custom css -->
-        {{> cssDep}}
         <!--SPM:<SharePoint:CacheManifestLink runat="server"/>-->
         <!--SPM:<SharePoint:PageRenderMode runat="server" RenderModeType="Standard"/>-->
         <!--SPM:<SharePoint:ScriptLink language="javascript" name="core.js" OnDemand="true" runat="server" Localizable="false"/>-->
@@ -67,23 +66,39 @@ To build the master page directly from this HTML file, simply edit the page as y
 <mso:HtmlDesignStatusAndPreview msdt:dt="string">http://govconnect/_catalogs/masterpage/govConnect01.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
 </mso:CustomDocumentProperties>
 </xml><![endif]-->
+    {{> cssDep}}
     </head>
     <body>
-{{> spRibbon}}
+        <div id="ms-designer-ribbon">
+        {{> spRibbon}}
+        </div>
         <!--MS:<SharePoint:SPSecurityTrimmedControl runat="server" AuthenticationRestrictions="AnonymousUsersOnly">-->
             <!--SPM:<wssucw:Welcome runat="server" EnableViewState="false"/>-->
         <!--ME:</SharePoint:SPSecurityTrimmedControl>-->
 
 
+        <div id="container">
+            <div id="topNavSpaceAbove"></div>
+            <!-- Top Nav Hamburger -->
+            <div id="topNavHamburger">
+                <span class="topNavHamburgerTitle">Title</span>
+                <span class="topNavHamburgerIcon"><i class="fa fa-bars"></i></span>
+            </div>
+            <!-- Top Nav -->
+            <div id="topNavContainer" data-name="TopNavigationNoFlyoutWithStartNode" class="ms-dialogHidden">
+            {{> spTopNav }}
+            </div>
 
-<!-- Top Nav -->
-{{> spTopNav }}
-<!-- Quick Launch -->
-{{> spCurrentNav }}
+            <!-- Quick Launch -->
+            <div data-name="QuickLaunch" class="ms-dialogHidden">
+            {{> spCurrentNav }}
+            </div>
 
-{{> s4workspace}}
-
-<!-- extra placeholders -->
+            <div id="s4-workspace">
+            {{> s4workspace}}
+            </div>
+        </div>
+        <!-- extra placeholders -->
 			<h3>PlaceHolderBodyLeftBorder</h3>
             <!--MS:<asp:ContentPlaceHolder id="PlaceHolderBodyLeftBorder" runat="server">-->
             <!--ME:</asp:ContentPlaceHolder>-->

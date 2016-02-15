@@ -1,3 +1,4 @@
+var exec = require('child_process').exec;
 var fs = require('fs');
 var gulp = require('gulp');
 var sass = require('gulp-sass');
@@ -13,6 +14,8 @@ var data = require('gulp-data');
 var path = require('path');
 var flatten = require('gulp-flatten');
 var moment = require('moment');
+var gulpFilter = require('gulp-filter');
+
 
 var buildDir = "/Program Files/Common Files/microsoft shared/Web Server Extensions/15/TEMPLATE/LAYOUTS/nova.gov.sp.dci";
 var jsDir = buildDir + "/js";
@@ -47,20 +50,10 @@ hbData.version = version;
 fs.writeFileSync("./handlebars/handlebarsData.json", JSON.stringify(hbData));
 
 gulp.task('bower-files', function() {
-    var bConf = {
-        "overrides":{
-            "susy": {
-                "ignore": true
-            },
-            "normalize-scss": {
-                "ignore": true
-            }
-        }
-    }
-//normalize-scss
     return gulp.src('./bower.json')
-        .pipe(mainBowerFiles(bConf))
+        .pipe(mainBowerFiles())
         .pipe(flatten())
+        .pipe(gulpFilter("*.js"))
         .pipe(gulp.dest(jsDir));
 });
 
@@ -78,7 +71,7 @@ gulp.task('copy-js', function() {
 
 
 gulp.task('copy-fonts', function() {
-    return gulp.src('fonts/*').pipe(gulp.dest(fontDir));
+    return gulp.src('bower_components/font-awesome/fonts/*').pipe(gulp.dest(fontDir));
 });
 
 gulp.task('ts-compile', function(){
@@ -108,8 +101,9 @@ gulp.task('sass', function() {
         indentedSyntax: true,
         includePaths: [
             __dirname + '/bower_components/susy/sass',
-            __dirname + '/bower_components/support-for/sass',
-            __dirname + '/bower_components/normalize-scss/sass'
+            __dirname + '/bower_components/normalize-css',
+            __dirname + '/bower_components/compass-breakpoint/stylesheets',
+            __dirname + '/bower_components/font-awesome/scss'
         ]
     };
 
@@ -141,14 +135,29 @@ gulp.task('handlebars', function () {
         .pipe(gulp.dest(buildDir));
 });
 
+gulp.task('uploadMasterPage',['handlebars'], function (cb) {
+    var exePath = "C:\\Source\\github\\dci\\uploadMpToSp\\bin\\x64\\Debug\\uploadMpToSp.exe"
+    var mp = `C:${buildDir.replace("/","\\")}\\govConnect.html`;
+    var sp = "http://govconnect"
+    var exeArgs = `"${mp}" "${sp}"`;    
+    var exeCmd = `${exePath} ${exeArgs}`;
+    exec(exeCmd, function (err, stdout, stderr) {
+        console.log(stdout);
+        console.log(stderr);
+        cb(err);
+    });
+});
+
 gulp.task('watch', function() {
   gulp.watch('TS/*.ts', ['ts-compile']);
   gulp.watch('TSTESTS/*.ts', ['ts-compile-tests']);
-  gulp.watch('handlebars/**/*.handlebars', ['handlebars']);
+  gulp.watch('handlebars/**/*.handlebars', ['uploadMasterPage']);
   gulp.watch('scss/**/*.{scss,sass}', ['sass']);
 });
 
 
+
+
 gulp.task('copy-files',['bower-files', 'copy-js', 'copy-css', 'copy-html', 'copy-fonts']);
 
-gulp.task('default',['copy-files', 'handlebars', 'sass', 'ts-compile','ts-compile-tests']);
+gulp.task('default',['copy-files', 'sass', 'ts-compile','ts-compile-tests','uploadMasterPage']);

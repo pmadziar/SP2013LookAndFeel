@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<package dslVersion="1.0.0.0" 
+        Id="3e57d4e0-2c62-4649-a7dc-88fd347e070c" 
+        solutionId="3e57d4e0-2c62-4649-a7dc-88fd347e070c" 
+        xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" 
+        name="nova.gov.sp.dci"
+        sharePointProductVersion="15.0">
+</package>

@@ -1,17 +1,113 @@
 // Scss
 @import "normalize";
 @import "susy";
+@import "breakpoint";
+@import "font-awesome";
+
+$tablet: 600px;
+$desktop: 980px;
+
+$baseColor: blue;
+$topNavBgColor: darken($baseColor, 30%);
+$topNavTxtColor: lighten($baseColor, 30%);
+
+$topNavFontSize: 1.2em;
+$topNavFontWeight: 400;
 
 $susy: (
-	columns: 4,
+	columns: 12,
 	global-box-sizing: border-box,
 	debug: (image: show)
 );
 
 @include border-box-sizing;
 
-
-.wrap {
-  @include container();
-  height: 100vh;
+#ms-designer-ribbon {
+	@include breakpoint(max-width $desktop - 1) {
+		display: none;
+	}
 }
+
+#container {
+	@include breakpoint(max-width $tablet - 1) {
+		@include container();
+	}
+	@include breakpoint(min-width $tablet) {
+		@include container(90%);
+	}
+	height: 100vh;
+}
+
+#topNavSpaceAbove {
+	display: none;
+	@include breakpoint(min-width $tablet) {
+		display: block;
+		height: gutter();
+	}
+}
+
+#topNavHamburger {
+	display: none;
+	@include breakpoint(max-width $tablet - 1) {
+		display: block;
+		@include span(full);
+		background-color: $topNavBgColor;
+		> .topNavHamburgerTitle {
+			display: inline-block;
+			float: left;
+			color: $topNavTxtColor;
+			font-weight: 700;
+			font-size: $topNavFontWeight;
+		}
+		> .topNavHamburgerIcon {
+			display: inline-block;
+			float: right;
+			color: $topNavTxtColor;
+			font-size: $topNavFontSize;
+			font-weight: $topNavFontWeight;
+			padding-right: gutter();
+		}
+	}
+}
+
+#topNavContainer {
+	@include span(full);
+	background-color: $topNavBgColor;
+
+	> div {
+		width: 100%;
+		ul {
+			padding-left: 0;
+			@include breakpoint(min-width $tablet) {
+				padding-left: 10px;
+			}
+			width: 100%;
+			> li.static {
+
+				@include breakpoint(max-width $tablet - 1) {
+					display: block;
+					width: 100%;
+					border-top: 1px solid $topNavTxtColor;
+					padding-left: gutter()/10;
+					padding-bottom: gutter()/10;
+				}
+				span.menu-item-text {
+					color: $topNavTxtColor;
+					font-size: $topNavFontSize;
+					font-weight: $topNavFontWeight;
+					width: 100%;
+				}
+				> a.static {
+					margin-top: gutter()*2;
+					margin-bottom: gutter()*2;
+				}
+
+			}
+		}
+	}
+
+
+
+}
+
+
