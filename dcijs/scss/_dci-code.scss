@@ -1,0 +1,17 @@
+// Scss
+@import "normalize";
+@import "susy";
+
+$susy: (
+	columns: 4,
+	global-box-sizing: border-box,
+	debug: (image: show)
+);
+
+@include border-box-sizing;
+
+
+.wrap {
+  @include container();
+  height: 100vh;
+}
