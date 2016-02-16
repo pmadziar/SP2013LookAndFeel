@@ -8,19 +8,29 @@ $tablet: 600px;
 $desktop: 980px;
 
 $baseColor: blue;
+$baseFontFamily: "Gill Sans", "Gill Sans MT", "Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif;
+$baseFontSize: 13px;
+
 $topNavBgColor: darken($baseColor, 30%);
 $topNavTxtColor: lighten($baseColor, 30%);
 
-$topNavFontSize: 1.2em;
+$topNavFontSize: 1.4*$baseFontSize;
 $topNavFontWeight: 400;
 
 $susy: (
 	columns: 12,
-	global-box-sizing: border-box,
-	debug: (image: show)
+	global-box-sizing: border-box
+	//,debug: (image: show)
 );
 
+$topMenuSpaceSize: 10px;
+
 @include border-box-sizing;
+
+html, body {
+	font-family: $baseFontFamily;
+	font-size: $baseFontSize;
+}
 
 #ms-designer-ribbon {
 	@include breakpoint(max-width $desktop - 1) {
@@ -57,7 +67,8 @@ $susy: (
 			float: left;
 			color: $topNavTxtColor;
 			font-weight: 700;
-			font-size: $topNavFontWeight;
+			font-size: $topNavFontSize;
+			font-weight: $topNavFontWeight;
 		}
 		> .topNavHamburgerIcon {
 			display: inline-block;
@@ -79,7 +90,7 @@ $susy: (
 		ul {
 			padding-left: 0;
 			@include breakpoint(min-width $tablet) {
-				padding-left: 10px;
+				padding-left: $topMenuSpaceSize;
 			}
 			width: 100%;
 			> li.static {
@@ -88,8 +99,8 @@ $susy: (
 					display: block;
 					width: 100%;
 					border-top: 1px solid $topNavTxtColor;
-					padding-left: gutter()/10;
-					padding-bottom: gutter()/10;
+					padding-left: $topMenuSpaceSize;
+					padding-bottom: $topMenuSpaceSize;
 				}
 				span.menu-item-text {
 					color: $topNavTxtColor;
@@ -98,16 +109,48 @@ $susy: (
 					width: 100%;
 				}
 				> a.static {
-					margin-top: gutter()*2;
-					margin-bottom: gutter()*2;
+					margin-top: $topMenuSpaceSize;
+					margin-bottom: $topMenuSpaceSize;
 				}
 
 			}
 		}
 	}
+}
 
-
+#quickLaunchContainer {
+	display: none;
+	@include breakpoint($tablet $desktop) {
+		display: block;
+		@include span(4 of 12);
+		#sideNavBox {
+			margin-left: 0;
+		}
+	}
+	@include breakpoint(min-width $desktop) {
+		display: block;
+		@include span(3 of 12);
+		#sideNavBox {
+			margin-left: 0;
+		}
+	}
 
 }
+
+#s4-workspace {
+	display: block;
+	@include breakpoint(max-width $tablet - 1) {
+		@include span(full);
+	}
+	@include breakpoint($tablet $desktop) {
+		display: block;
+		@include span(8 of 12 last);
+	}
+	@include breakpoint(min-width $desktop) {
+		display: block;
+		@include span(9 of 12 last);
+	}
+}
+
 
 

@@ -90,11 +90,11 @@ To build the master page directly from this HTML file, simply edit the page as y
             </div>
 
             <!-- Quick Launch -->
-            <div data-name="QuickLaunch" class="ms-dialogHidden">
+            <div id="quickLaunchContainer" data-name="QuickLaunch" class="ms-dialogHidden">
             {{> spCurrentNav }}
             </div>
 
-            <div id="s4-workspace">
+            <div id="s4-workspace" class="s4-nosetwidth">
             {{> s4workspace}}
             </div>
         </div>
@@ -201,7 +201,6 @@ To build the master page directly from this HTML file, simply edit the page as y
         <!--SPM:<SharePoint:FormDigest runat="server"/>-->
         <!--SPM:</asp:ContentPlaceHolder>-->
         <!--SPM:</SharePoint:AjaxDelta>-->
-
         {{> jsDep}}
     </body>
 </html>
