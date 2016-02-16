@@ -1,0 +1,32 @@
+// Scss
+@import "normalize";
+@import "susy";
+@import "breakpoint";
+@import "font-awesome";
+@import "dcivariables";
+
+// Scss. Clearfix Mixin
+@mixin cf {
+	&:after {
+		content: " ";
+		display: block;
+		clear: both;
+	}
+}
+
+$susy: (
+	columns: 12,
+	global-box-sizing: border-box
+	//,debug: (image: show)
+);
+
+@import "dcimain";
+
+#quickLaunchContainer {
+	display: none;
+}
+
+#s4-workspace {
+	display: block;
+	@include span(full);
+}

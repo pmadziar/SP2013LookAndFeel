@@ -66,7 +66,7 @@ To build the master page directly from this HTML file, simply edit the page as y
 <mso:HtmlDesignStatusAndPreview msdt:dt="string">http://govconnect/_catalogs/masterpage/govConnect01.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
 </mso:CustomDocumentProperties>
 </xml><![endif]-->
-    {{> cssDep cssName="dci.css"}}
+    {{> cssDep cssName="dcifp.css"}}
     </head>
     <body>
         <div id="ms-designer-ribbon">
@@ -99,11 +99,6 @@ To build the master page directly from this HTML file, simply edit the page as y
             </div>
             <div id="topNavSpaceBelow" class="ms-dialogHidden"></div>
 
-            <!-- Quick Launch -->
-            <div id="quickLaunchContainer" data-name="QuickLaunch" class="ms-dialogHidden">
-            {{> spCurrentNav }}
-            </div>
-
             <div id="s4-workspace" class="s4-nosetwidth">
             {{> s4workspace}}
             </div>
@@ -111,6 +106,14 @@ To build the master page directly from this HTML file, simply edit the page as y
 <!--CS: Start Create Snippets From Custom ASP.NET Markup Snippet-->
 <!--SPM:<asp:panel id="hideItPanel" runat="server" visible="true">-->
 {{> spHiddenPlaceholders}}
+<!--MS:<asp:ContentPlaceHolder ID="PlaceHolderLeftNavBar" runat="server">--><!--ME:</asp:ContentPlaceHolder>-->
+<!--MS:<asp:ContentPlaceHolder ID="PlaceHolderLeftNavBarTop" runat="server">--><!--ME:</asp:ContentPlaceHolder>-->
+<!--MS:<asp:ContentPlaceHolder ID="PlaceHolderQuickLaunchTop" runat="server">--><!--ME:</asp:ContentPlaceHolder>-->
+<!--MS:<asp:ContentPlaceHolder ID="PlaceHolderLeftNavBarDataSource" runat="server">--><!--ME:</asp:ContentPlaceHolder>-->
+<!--MS:<asp:ContentPlaceHolder ID="PlaceHolderCalendarNavigator" runat="server">--><!--ME:</asp:ContentPlaceHolder>-->
+<!--MS:<asp:ContentPlaceHolder ID="PlaceHolderLeftActions" runat="server">--><!--ME:</asp:ContentPlaceHolder>-->
+<!--MS:<asp:ContentPlaceHolder ID="PlaceHolderQuickLaunchBottom" runat="server">--><!--ME:</asp:ContentPlaceHolder>-->
+
 <!--SPM:</asp:panel>-->
 <!--CE: End Create Snippets From Custom ASP.NET Markup Snippet-->
 

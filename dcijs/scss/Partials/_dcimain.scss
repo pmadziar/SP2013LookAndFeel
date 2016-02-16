@@ -1,0 +1,137 @@
+
+@include border-box-sizing;
+
+html, body {
+	font-family: $baseFontFamily;
+	font-size: $baseFontSize;
+}
+
+#ms-designer-ribbon {
+	@include breakpoint(max-width $desktop - 1) {
+		display: none;
+	}
+}
+
+#container {
+	@include breakpoint(max-width $tablet - 1) {
+		@include container();
+	}
+	@include breakpoint(min-width $tablet) {
+		@include container(90%);
+	}
+	height: 100vh;
+}
+
+#topNavSpaceAbove {
+	display: none;
+	@include breakpoint(min-width $tablet) {
+		display: block;
+		height: $topMenuSpaceSize*1.5;
+		@include cf;
+	}
+}
+
+#topNavSpaceBelow {
+	display: none;
+	@include breakpoint(min-width $tablet) {
+		display: block;
+		height: $topMenuSpaceSize*1.5;
+		@include cf;
+		@include span(full);
+	}
+}
+
+
+#topNavHamburger {
+	display: none;
+	@include breakpoint(max-width $tablet - 1) {
+		display: block;
+		@include span(full);
+		background-color: $topNavBgColor;
+		> .topNavHamburgerTitle {
+			display: inline-block;
+			float: left;
+			color: $topNavTxtColor;
+			font-weight: 700;
+			font-size: $topNavFontSize;
+			font-weight: $topNavFontWeight;
+		}
+		> .topNavHamburgerIcon {
+			display: inline-block;
+			float: right;
+			color: $topNavTxtColor;
+			font-size: $topNavFontSize;
+			font-weight: $topNavFontWeight;
+			padding-right: gutter();
+		}
+	}
+}
+
+#topNavContainer {
+	@include span(full);
+	background-color: $topNavBgColor;
+
+	> div {
+		width: 100%;
+		ul {
+			padding-left: 0;
+			@include breakpoint(min-width $tablet) {
+				padding-left: $topMenuSpaceSize;
+			}
+			width: 100%;
+			> li.static {
+
+				@include breakpoint(max-width $tablet - 1) {
+					display: block;
+					width: 100%;
+					border-top: 1px solid $topNavTxtColor;
+					padding-left: $topMenuSpaceSize;
+					padding-bottom: $topMenuSpaceSize;
+				}
+				span.menu-item-text {
+					color: $topNavTxtColor;
+					font-size: $topNavFontSize;
+					font-weight: $topNavFontWeight;
+					width: 100%;
+				}
+				> a.static {
+					margin-top: $topMenuSpaceSize;
+					margin-bottom: $topMenuSpaceSize;
+					&.selected.menu-item span.menu-item-text {
+						font-weight: $topNavFontWeight + 300;
+						color: lighten($topNavTxtColor, 30%);
+					}
+				}
+
+			}
+		}
+	}
+}
+
+#titleAndLogoContainer {
+	display: none;
+	@include breakpoint(min-width $tablet) {
+		display: block;
+		@include span(full);
+		background-color: $titleAndLogoBgColor;
+		color: $titleAndLogoTxtColor;
+		@include cf;
+		#logoContainer {
+			display: inline-block;
+			float: left;
+			padding: $topMenuSpaceSize $topMenuSpaceSize $topMenuSpaceSize $topMenuSpaceSize;
+		}
+		#titleContainer {
+			display: inline-block;
+			float: left;
+			padding: $topMenuSpaceSize $topMenuSpaceSize $topMenuSpaceSize $topMenuSpaceSize;
+			> h1 > a, > h1 > a:visited {
+				font-size: $titleAndLogoFontSize;
+				color: $titleAndLogoTxtColor;
+				font-weight: 700;
+				text-decoration: none;
+			}
+		}
+	}
+}
+

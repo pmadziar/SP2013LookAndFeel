@@ -1,0 +1,18 @@
+$tablet: 600px;
+$desktop: 980px;
+
+$baseColor: #006EB6;
+$baseFontFamily: "Gill Sans", "Gill Sans MT", "Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif;
+$baseFontSize: 13px;
+
+$topNavBgColor: darken($baseColor, 10%);
+$topNavTxtColor: lighten($baseColor, 40%);
+$titleAndLogoBgColor: lighten($baseColor, 30%);
+$titleAndLogoTxtColor: darken($baseColor, 30%);
+
+$topNavFontSize: 1.4*$baseFontSize;
+$titleAndLogoFontSize: 2*$baseFontSize;
+$topNavFontWeight: 400;
+
+$topMenuSpaceSize: 10px;
+

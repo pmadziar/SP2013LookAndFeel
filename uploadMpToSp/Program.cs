@@ -17,46 +17,76 @@ namespace uploadMpToSp
         {
             if (args?.Length != 2)
             {
-                throw new ArgumentException($"Usage: {typeof (Program).Namespace}.exe c:\\somewhere\\MasterPageFullPath.master http://sharepoiont/site/url");
+                throw new ArgumentException(
+                    $"Usage: {typeof (Program).Namespace}.exe c:\\somewhere\\MasterPageFullPath.master http://sharepoiont/site/url");
             }
 
-            if (!File.Exists(args[0]))
-            {
-                throw new FileNotFoundException("Master Page not found", args[0]);
-            }
+            //if (!File.Exists(args[0]))
+            //{
+            //    throw new FileNotFoundException("Master Page not found", args[0]);
+            //}
 
-            byte[] allBytes = File.ReadAllBytes(args[0]);
+            List<string> fileNames = new List<string>();
 
             try
             {
-                string siteUrl = args[1];
-                string fname = Path.GetFileName(args[0]);
-                using (SPSite s = new SPSite(siteUrl))
+                var dirPath = Path.GetDirectoryName(args[0]);
+                if (!Directory.Exists(dirPath))
                 {
-                    using (SPWeb w = s.OpenWeb(s.RootWeb.ID))
-                    {
-                        SPList mpCatalog = w.GetCatalog(SPListTemplateType.MasterPageCatalog);
-                        SPFolder fld = mpCatalog.RootFolder;
-                        if (fld.Exists)
-                        {
-                            var spPath = $"{fld.ServerRelativeUrl}/{fname}";
-                            Console.WriteLine($"Uploading {fname} into {spPath}");
-                            SPFile spFile = w.GetFile(spPath);
-                            if (!spFile.Exists)
-                            {
-                                throw  new SPException("Upload file manually first time");
-                            }
-                            spFile.CheckOut();
-                            spFile.SaveBinary(allBytes);
-                            spFile.CheckIn("Automatically updated", SPCheckinType.MajorCheckIn);
-                            spFile.Publish("Automatically published");
-                        }
-                    }
+                    throw new DirectoryNotFoundException(dirPath);
                 }
+
+                var filter = Path.GetFileName(args[0]);
+                var filesInDir = Directory.GetFiles(dirPath, filter);
+                if (filesInDir?.Length == 0)
+                {
+                    throw new FileNotFoundException($"Master Page not found: {args[0]}");
+                }
+                fileNames.AddRange(filesInDir);
             }
             catch (Exception)
             {
                 throw;
+            }
+
+            if (fileNames?.Count > 0)
+            {
+                try
+                {
+                    string siteUrl = args[1];
+                    using (SPSite s = new SPSite(siteUrl))
+                    {
+                        using (SPWeb w = s.OpenWeb(s.RootWeb.ID))
+                        {
+                            SPList mpCatalog = w.GetCatalog(SPListTemplateType.MasterPageCatalog);
+                            SPFolder fld = mpCatalog.RootFolder;
+                            if (fld.Exists)
+                            {
+                                foreach (var fileName in fileNames)
+                                {
+                                    string fname = Path.GetFileName(fileName);
+
+                                    byte[] allBytes = File.ReadAllBytes(fileName);
+                                    var spPath = $"{fld.ServerRelativeUrl}/{fname}";
+                                    Console.WriteLine($"Uploading {fname} into {spPath}");
+                                    SPFile spFile = w.GetFile(spPath);
+                                    if (!spFile.Exists)
+                                    {
+                                        throw new SPException("Upload file manually first time");
+                                    }
+                                    spFile.CheckOut();
+                                    spFile.SaveBinary(allBytes);
+                                    spFile.CheckIn("Automatically updated", SPCheckinType.MajorCheckIn);
+                                    spFile.Publish("Automatically published");
+                                }
+                            }
+                        }
+                    }
+                }
+                catch (Exception)
+                {
+                    throw;
+                }
             }
         }
     }

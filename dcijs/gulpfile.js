@@ -103,7 +103,8 @@ gulp.task('sass', function() {
             __dirname + '/bower_components/susy/sass',
             __dirname + '/bower_components/normalize-css',
             __dirname + '/bower_components/compass-breakpoint/stylesheets',
-            __dirname + '/bower_components/font-awesome/scss'
+            __dirname + '/bower_components/font-awesome/scss',
+            __dirname + '/scss/partials',
         ]
     };
 
@@ -137,7 +138,7 @@ gulp.task('handlebars', function () {
 
 gulp.task('uploadMasterPage',['handlebars'], function (cb) {
     var exePath = "C:\\Source\\github\\dci\\uploadMpToSp\\bin\\x64\\Debug\\uploadMpToSp.exe"
-    var mp = `C:${buildDir.replace("/","\\")}\\govConnect.html`;
+    var mp = `C:${buildDir.replace("/","\\")}\\govConnect*.html`;
     var sp = "http://govconnect"
     var exeArgs = `"${mp}" "${sp}"`;    
     var exeCmd = `${exePath} ${exeArgs}`;
