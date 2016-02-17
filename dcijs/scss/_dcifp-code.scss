@@ -29,4 +29,29 @@ $susy: (
 #s4-workspace {
 	display: block;
 	@include span(full);
+	@include cf;
 }
+
+#callOutsContainer {
+	display: block;
+	@include span(full);
+}
+
+#inTheNewsTitleContainer {
+	display: block;
+	background-color: $titleAndLogoBgColor;
+	padding-top: $topMenuSpaceSize;
+	padding-bottom: $topMenuSpaceSize;
+	@include span(full);
+	> span {
+		color: $titleAndLogoTxtColor;
+		font-size: $topNavFontSize;
+		padding-left: $topMenuSpaceSize;
+	}
+}
+
+#inTheNewsContainer {
+	display: block;
+	@include span(full);
+}
+

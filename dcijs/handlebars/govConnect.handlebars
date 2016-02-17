@@ -9,9 +9,9 @@ To build the master page directly from this HTML file, simply edit the page as y
 <!-- _LocalBinding -->
 <!DOCTYPE html>
 <html lang="en">
-    <head>
+<head>
         <meta http-equiv="X-UA-Compatible" content="IE=10" />
-		<meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--CS: Start Head Snippet-->
         <!--SPM:<%@Register Tagprefix="SharePoint" Namespace="Microsoft.SharePoint.WebControls" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
         <!--SPM:<%@Register Tagprefix="WebPartPages" Namespace="Microsoft.SharePoint.WebPartPages" Assembly="Microsoft.SharePoint, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c"%>-->
@@ -66,7 +66,9 @@ To build the master page directly from this HTML file, simply edit the page as y
 <mso:HtmlDesignStatusAndPreview msdt:dt="string">http://govconnect/_catalogs/masterpage/govConnect01.html, Conversion successful.</mso:HtmlDesignStatusAndPreview>
 </mso:CustomDocumentProperties>
 </xml><![endif]-->
-    {{> cssDep cssName="dci.css"}}
+    <!--MS:<asp:ContentPlaceHolder id="PlaceHolderCustomCss" runat="server">-->
+        {{> cssDep cssName="dci.css"}}
+    <!--ME:</asp:ContentPlaceHolder>-->
     </head>
     <body>
         <div id="ms-designer-ribbon">
@@ -108,10 +110,17 @@ To build the master page directly from this HTML file, simply edit the page as y
             {{> s4workspace}}
             </div>
         </div>
+<div style="display: none; hidden=true;">
 <!--CS: Start Create Snippets From Custom ASP.NET Markup Snippet-->
 <!--SPM:<asp:panel id="hideItPanel" runat="server" visible="true">-->
 {{> spHiddenPlaceholders}}
 <!--SPM:</asp:panel>-->
+<h3>PlaceHolderPageTitleInTitleArea</h3>
+<!--MS:<asp:ContentPlaceHolder id="PlaceHolderPageTitleInTitleArea" runat="server">-->
+<!--ME:</asp:ContentPlaceHolder>-->
+<hr />
+
+</div>
 <!--CE: End Create Snippets From Custom ASP.NET Markup Snippet-->
 
         <!-- PlaceHolderFormDigest -->
