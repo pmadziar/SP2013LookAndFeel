@@ -59,7 +59,15 @@ namespace uploadMpToSp
                         using (SPWeb w = s.OpenWeb(s.RootWeb.ID))
                         {
                             SPList mpCatalog = w.GetCatalog(SPListTemplateType.MasterPageCatalog);
+
                             SPFolder fld = mpCatalog.RootFolder;
+
+                            Uri uri = new Uri(siteUrl);
+                            if (uri.AbsolutePath != w.ServerRelativeUrl)
+                            {
+                                fld = w.GetFolder(uri.AbsolutePath);
+                            }
+
                             if (fld.Exists)
                             {
                                 foreach (var fileName in fileNames)

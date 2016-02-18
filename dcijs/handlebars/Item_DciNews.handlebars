@@ -1,0 +1,152 @@
+<html xmlns:mso="urn:schemas-microsoft-com:office:office" xmlns:msdt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"> 
+<head>
+<title>DCI News Item</title>
+
+<!--[if gte mso 9]><xml>
+<mso:CustomDocumentProperties>
+<mso:TemplateHidden msdt:dt="string">0</mso:TemplateHidden>
+<mso:ManagedPropertyMapping msdt:dt="string">'Picture URL'{Picture URL}:'PublishingImage','Link URL'{Link URL}:'Path','News Title'{News Title}:'Title','Content'{Content}:'PublishingPageContentOWSHTML','Article Date'{Article Date}:'','SecondaryFileExtension','ContentTypeId'</mso:ManagedPropertyMapping>
+<mso:MasterPageDescription msdt:dt="string">This Item Display Template will show a 100x100 picture of the item on the left. The title and the default item description will display to the right of the picture with an additional line that is available for a custom managed property.</mso:MasterPageDescription>
+<mso:ContentTypeId msdt:dt="string">0x0101002039C03B61C64EC4A04F5361F385106603</mso:ContentTypeId>
+<mso:TargetControlType msdt:dt="string">;#Content Web Parts;#</mso:TargetControlType>
+<mso:HtmlDesignAssociated msdt:dt="string">1</mso:HtmlDesignAssociated>
+</mso:CustomDocumentProperties>
+</xml><![endif]-->
+</head>
+
+<body>
+
+    <!--
+            Warning: Do not try to add HTML to this section. Only the contents of the first <div>
+            inside the <body> tag will be used while executing Display Template code. Any HTML that
+            you add to this section will NOT become part of your Display Template.
+    -->
+    <script>
+        $includeLanguageScript(this.url, "~sitecollection/_catalogs/masterpage/Display Templates/Language Files/{Locale}/CustomStrings.js");
+    </script>
+
+    <!--
+        Use the div below to author your Display Template. Here are some things to keep in mind:
+        * Surround any JavaScript logic as shown below using a "pound underscore" (#_ ... _#) token
+        inside a comment.
+
+        * Use the values assigned to your variables using an "underscore pound equals"
+        (_#= ... =#_) token.
+    -->
+
+    <div id="Item_DciNews">
+
+<!--#_
+var encodedId = $htmlEncode(ctx.ClientControl.get_nextUniqueId() + "_dciNews_");
+
+var getSubString = function(str, len){
+    var ret = str;
+    if(str && len){
+        var strlen = str.length;
+        if(strlen > len){
+            ret = str.substring(0,len) + " ...";
+        }
+    }
+    return ret;
+}
+
+var linkURL = $getItemValue(ctx, "Link URL");
+linkURL.overrideValueRenderer($urlHtmlEncode);
+
+var newsTitle = $getItemValue(ctx, "News Title");
+var content = $getItemValue(ctx, "Content");
+var articleDate = $getItemValue(ctx, "Article Date");
+
+var pictureURL = $getItemValue(ctx, "Picture URL");
+
+var titleText = '';
+if(!newsTitle.isEmpty){
+    titleText = newsTitle.value;
+}
+
+
+var imgSrc = null;
+if(!pictureURL.isEmpty){
+    imgSrc = $(pictureURL.value).attr("src");
+}
+
+var contentText = '';
+if(!content.isEmpty){
+    contentText = $(content.value).text();
+}
+
+
+
+
+newsTitle.overrideValueRenderer($contentLineText);
+content.overrideValueRenderer($contentLineText);
+articleDate.overrideValueRenderer($contentLineText);
+
+
+var dataDisplayTemplateTitle = "ItemdciNews";
+
+ _#-->
+
+ <div class="dciNewsImgContainer">
+    <!--#_
+    if(!pictureURL.isEmpty)
+    {
+        if(!linkURL.isEmpty)
+        {
+    _#-->
+            <a href="_#= linkURL =#_" class="dciNewsImgLink">
+    <!--#_
+        }
+    _#-->
+        <img src="_#= imgSrc =#_" class="dciNewsImg img-dci-responsive" />
+
+    <!--#_
+        if(!linkURL.isEmpty)
+        {
+    _#-->
+            </a>
+    <!--#_
+        }
+    }
+    _#-->
+ </div>
+ <div class="dciNewsTitleContainer">
+    <!--#_
+    if(!pictureURL.isEmpty)
+    {
+        if(!linkURL.isEmpty)
+        {
+    _#-->
+            <a href="_#= linkURL =#_" class="dciNewsTitleLink">
+    <!--#_
+        }
+    _#-->
+        <h1>_#= titleText =#_</h1>
+
+    <!--#_
+        if(!linkURL.isEmpty)
+        {
+    _#-->
+            </a>
+    <!--#_
+        }
+    }
+    _#-->
+ </div>
+ <div class="dciNewsContentContainer">
+     <div class="dciNewsContentContainer40">
+     _#= getSubString(contentText, 40) =#_
+     </div>
+     <hr />
+     <div class="dciNewsContentContainer80">
+     _#= getSubString(contentText, 80) =#_
+     </div>
+     <hr />
+     <div class="dciNewsContentContainer160">
+     _#= getSubString(contentText, 160) =#_
+     </div>
+ </div>
+</div>
+</body>
+</html>
+

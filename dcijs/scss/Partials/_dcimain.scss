@@ -47,6 +47,9 @@ html, body {
 	@include breakpoint(max-width $tablet - 1) {
 		display: block;
 		@include span(full);
+		padding-left: $topMenuSpaceSize;
+		padding-bottom: $topMenuSpaceSize;
+		padding-top: $topMenuSpaceSize;
 		background-color: $topNavBgColor;
 		> .topNavHamburgerTitle {
 			display: inline-block;
@@ -135,3 +138,8 @@ html, body {
 	}
 }
 
+img.img-dci-responsive {
+	display: block;
+	max-width: 100%;
+	height: auto;
+}

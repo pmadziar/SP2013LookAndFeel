@@ -149,10 +149,23 @@ gulp.task('uploadMasterPage',['handlebars'], function (cb) {
     });
 });
 
+gulp.task('uploadDisplayTemplates',['handlebars','uploadMasterPage'], function (cb) {
+    var exePath = "C:\\Source\\github\\dci\\uploadMpToSp\\bin\\x64\\Debug\\uploadMpToSp.exe"
+    var mp = `C:${buildDir.replace("/","\\")}\\item_*.html`;
+    var sp = "http://govconnect/_catalogs/masterpage/Display Templates/Content Web Parts/"
+    var exeArgs = `"${mp}" "${sp}"`;    
+    var exeCmd = `${exePath} ${exeArgs}`;
+    exec(exeCmd, function (err, stdout, stderr) {
+        console.log(stdout);
+        console.log(stderr);
+        cb(err);
+    });
+});
+
 gulp.task('watch', function() {
   gulp.watch('TS/*.ts', ['ts-compile']);
   gulp.watch('TSTESTS/*.ts', ['ts-compile-tests']);
-  gulp.watch('handlebars/**/*.handlebars', ['uploadMasterPage']);
+  gulp.watch('handlebars/**/*.handlebars', ['uploadMasterPage','uploadDisplayTemplates']);
   gulp.watch('scss/**/*.{scss,sass}', ['sass']);
 });
 
@@ -161,4 +174,4 @@ gulp.task('watch', function() {
 
 gulp.task('copy-files',['bower-files', 'copy-js', 'copy-css', 'copy-html', 'copy-fonts']);
 
-gulp.task('default',['copy-files', 'sass', 'ts-compile','ts-compile-tests','uploadMasterPage']);
+gulp.task('default',['copy-files', 'sass', 'ts-compile','ts-compile-tests','uploadMasterPage','uploadDisplayTemplates']);
