@@ -40,14 +40,14 @@ To build the page layout directly from this HTML file, simply fill in the conten
     <body>
         <!--MS:<asp:ContentPlaceHolder ID="PlaceHolderMain" runat="server">-->
             <div id="articleTitle">
-                {{> spPageFieldTitle}}
-            </div>
-            <div id="articleContent">
-                {{> spPageFieldPageContent}}
+                <h1>{{> spPageFieldTitle}}</h1>
             </div>
             {{> spEditModePanel contentPartialName="spPageFieldPageImage"}}
             {{> spEditModePanel contentPartialName="spPageFieldArticleDate"}}
 
+            <div id="articleContent">
+                {{> spPageFieldPageContent}}
+            </div>
         <!--ME:</asp:ContentPlaceHolder>-->
         <!--MS:<asp:ContentPlaceHolder id="PlaceHolderPageTitleInTitleArea" runat="server">-->
             <!--CS: Start Page Field: Title Snippet-->

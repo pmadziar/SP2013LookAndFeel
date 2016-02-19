@@ -1,5 +1,7 @@
 $tablet: 600px;
+$tablet-l: 860px;
 $desktop: 980px;
+$desktop-l: 1300px;
 
 $tablet-1: $tablet - 1;
 $desktop-1: $desktop - 1;
@@ -14,7 +16,7 @@ $topNavTxtColor: lighten($baseColor, 40%);
 $titleAndLogoBgColor: lighten($baseColor, 30%);
 $titleAndLogoTxtColor: darken($baseColor, 30%);
 
-$newsOddColor: hsl(hue($baseColor), saturation($baseColor), 10%);
+$newsOddColor: hsl(hue($baseColor), saturation($baseColor), 95%);
 
 $topNavFontSize: 1.4*$baseFontSize;
 $titleAndLogoFontSize: 2*$baseFontSize;

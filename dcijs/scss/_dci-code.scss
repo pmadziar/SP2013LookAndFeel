@@ -24,19 +24,20 @@ $susy: (
 
 #quickLaunchContainer {
 	display: none;
-	@include breakpoint($tablet $desktop) {
+	#sideNavBox {
+		margin-left: 0;
+	}
+	@include breakpoint($tablet $tablet-l) {
 		display: block;
 		@include span(4 of 12);
-		#sideNavBox {
-			margin-left: 0;
-		}
 	}
-	@include breakpoint(min-width $desktop) {
+	@include breakpoint($tablet-l $desktop-l) {
 		display: block;
 		@include span(3 of 12);
-		#sideNavBox {
-			margin-left: 0;
-		}
+	}
+	@include breakpoint(min-width $desktop-l) {
+		display: block;
+		@include span(2 of 12);
 	}
 	a.static.selected.menu-item {
 		background-color: $titleAndLogoBgColor;
@@ -49,12 +50,16 @@ $susy: (
 	@include breakpoint(max-width $tablet - 1) {
 		@include span(full);
 	}
-	@include breakpoint($tablet $desktop) {
+	@include breakpoint($tablet $tablet-l) {
 		display: block;
 		@include span(8 of 12 last);
 	}
-	@include breakpoint(min-width $desktop) {
+	@include breakpoint($tablet-l $desktop-l) {
 		display: block;
 		@include span(9 of 12 last);
+	}
+	@include breakpoint(min-width $desktop-l) {
+		display: block;
+		@include span(10 of 12 last);
 	}
 }

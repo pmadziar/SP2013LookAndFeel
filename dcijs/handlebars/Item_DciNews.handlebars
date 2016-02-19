@@ -110,40 +110,42 @@ var dataDisplayTemplateTitle = "ItemdciNews";
     }
     _#-->
  </div>
- <div class="dciNewsTitleContainer">
-    <!--#_
-    if(!pictureURL.isEmpty)
-    {
-        if(!linkURL.isEmpty)
+ <div class="dciNewsTextContainer">
+     <div class="dciNewsTitleContainer">
+        <!--#_
+        if(!pictureURL.isEmpty)
         {
-    _#-->
-            <a href="_#= linkURL =#_" class="dciNewsTitleLink">
-    <!--#_
-        }
-    _#-->
-        <h1>_#= titleText =#_</h1>
+            if(!linkURL.isEmpty)
+            {
+        _#-->
+                <a href="_#= linkURL =#_" class="dciNewsTitleLink">
+        <!--#_
+            }
+        _#-->
+            <h1>_#= titleText =#_</h1>
 
-    <!--#_
-        if(!linkURL.isEmpty)
-        {
-    _#-->
-            </a>
-    <!--#_
+        <!--#_
+            if(!linkURL.isEmpty)
+            {
+        _#-->
+                </a>
+        <!--#_
+            }
         }
-    }
-    _#-->
- </div>
- <div class="dciNewsContentContainer">
-     <div class="dciNewsContentContainerMobile">
-     _#= getSubString(contentText, 40) =#_
+        _#-->
      </div>
-     <div class="dciNewsContentContainerTablet">
-     _#= getSubString(contentText, 80) =#_
+     <div class="dciNewsContentContainer">
+         <div class="dciNewsContentContainerMobile">
+         _#= getSubString(contentText, 90) =#_
+         </div>
+         <div class="dciNewsContentContainerTablet">
+         _#= getSubString(contentText, 180) =#_
+         </div>
+         <div class="dciNewsContentContainerDesktop">
+         _#= getSubString(contentText, 360) =#_
+         </div>
      </div>
-     <div class="dciNewsContentContainerDesktop">
-     _#= getSubString(contentText, 160) =#_
-     </div>
- </div>
+</div>
 </div>
 </body>
 </html>
