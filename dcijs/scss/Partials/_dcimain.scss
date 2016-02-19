@@ -143,3 +143,25 @@ img.img-dci-responsive {
 	max-width: 100%;
 	height: auto;
 }
+
+
+#dciNewsContentContainer {
+	> #dciNewsContentContainerMobile {
+		display: block;
+		@include breakpoint(max-width $tablet -1) {
+			display: none;
+		}
+	}
+	> #dciNewsContentContainerMobile {
+		display: none;
+		@include breakpoint($tablet ($desktop -1)) {
+			display: block;
+		}
+	}
+	> #dciNewsContentContainerMobile {
+		display: none;
+		@include breakpoint(min-width $tablet) {
+			display: block;
+		}
+	}
+}
