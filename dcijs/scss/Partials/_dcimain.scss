@@ -7,13 +7,13 @@ html, body {
 }
 
 #ms-designer-ribbon {
-	@include breakpoint(max-width $desktop - 1) {
+	@include breakpoint(max-width $desktop-1) {
 		display: none;
 	}
 }
 
 #container {
-	@include breakpoint(max-width $tablet - 1) {
+	@include breakpoint(max-width $tablet-1) {
 		@include container();
 	}
 	@include breakpoint(min-width $tablet) {
@@ -44,7 +44,7 @@ html, body {
 
 #topNavHamburger {
 	display: none;
-	@include breakpoint(max-width $tablet - 1) {
+	@include breakpoint(max-width $tablet-1) {
 		display: block;
 		@include span(full);
 		padding-left: $topMenuSpaceSize;
@@ -84,7 +84,7 @@ html, body {
 			width: 100%;
 			> li.static {
 
-				@include breakpoint(max-width $tablet - 1) {
+				@include breakpoint(max-width $tablet-1) {
 					display: block;
 					width: 100%;
 					border-top: 1px solid $topNavTxtColor;
@@ -145,23 +145,31 @@ img.img-dci-responsive {
 }
 
 
-#dciNewsContentContainer {
-	> #dciNewsContentContainerMobile {
+div.dciNewsContentContainer {
+	> div.dciNewsContentContainerMobile {
 		display: block;
-		@include breakpoint(max-width $tablet -1) {
+		@include breakpoint(min-width $tablet) {
 			display: none;
 		}
 	}
-	> #dciNewsContentContainerMobile {
+	> div.dciNewsContentContainerTablet {
 		display: none;
-		@include breakpoint($tablet ($desktop -1)) {
+		@include breakpoint($tablet $desktop-1) {
 			display: block;
 		}
 	}
-	> #dciNewsContentContainerMobile {
+	> div.dciNewsContentContainerDesktop {
 		display: none;
-		@include breakpoint(min-width $tablet) {
+		@include breakpoint(min-width $desktop) {
 			display: block;
 		}
+	}
+}
+
+#inTheNewsContainer ul.cbs-List li {
+	display: inline-block;
+	width: span(12 of 12);
+	&:nth-child(odd){
+		background-color: $newsOddColor;
 	}
 }

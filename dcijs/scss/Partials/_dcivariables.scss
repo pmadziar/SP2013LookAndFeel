@@ -1,6 +1,9 @@
 $tablet: 600px;
 $desktop: 980px;
 
+$tablet-1: $tablet - 1;
+$desktop-1: $desktop - 1;
+
 $baseColor: #006EB6;
 //$baseColor: red;
 $baseFontFamily: "Gill Sans", "Gill Sans MT", "Segoe UI","Segoe",Tahoma,Helvetica,Arial,sans-serif;
@@ -10,6 +13,8 @@ $topNavBgColor: darken($baseColor, 10%);
 $topNavTxtColor: lighten($baseColor, 40%);
 $titleAndLogoBgColor: lighten($baseColor, 30%);
 $titleAndLogoTxtColor: darken($baseColor, 30%);
+
+$newsOddColor: hsl(hue($baseColor), saturation($baseColor), 10%);
 
 $topNavFontSize: 1.4*$baseFontSize;
 $titleAndLogoFontSize: 2*$baseFontSize;
