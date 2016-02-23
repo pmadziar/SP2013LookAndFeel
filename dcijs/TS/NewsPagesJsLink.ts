@@ -7,9 +7,11 @@ module dcijs {
 			let overrideCtx: SPClientTemplates.RenderContext = {};
 			overrideCtx.Templates = {};
 
-			overrideCtx.Templates.Header = `<ul class="cbs-List">`;
+			overrideCtx.Templates.Header = `<div class="newsViewContainer">
+											<ul class="cbs-List">`;
 			overrideCtx.Templates.Item = this.getItemHtml;
-			overrideCtx.Templates.Footer = "</ul>";
+			overrideCtx.Templates.Footer = `</ul>
+											</div>`;
 
 			//overrideCtx.BaseViewID = 1;
 			overrideCtx.ListTemplateType = 850;

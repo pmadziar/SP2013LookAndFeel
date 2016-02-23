@@ -23,6 +23,7 @@
     "html5shiv": "^3.7.3",
     "respond": "^1.4.2",
     "font-awesome": "fontawesome#^4.5.0",
-    "lodash": "^4.4.0"
+    "lodash": "^4.4.0",
+    "moment": "^2.11.2"
   }
 }

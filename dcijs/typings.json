@@ -6,6 +6,7 @@
     "SharePoint": "github:DefinitelyTyped/DefinitelyTyped/sharepoint/SharePoint.d.ts#d4c22e84601e2468dcc08e1e1288a0700658f9ce",
     "jquery": "github:DefinitelyTyped/DefinitelyTyped/jquery/jquery.d.ts#fab0b336b0414fac23963bde83f7d7077f6cf14c",
     "lodash": "github:DefinitelyTyped/DefinitelyTyped/lodash/lodash.d.ts#7b7aa2027a8fb6219a8bcf1b6bb12bcd0ff9539d",
-    "microsoft.ajax": "github:DefinitelyTyped/DefinitelyTyped/microsoft-ajax/microsoft.ajax.d.ts#ae2581f4ce9d1b468089ea3d0652200d17e52af4"
+    "microsoft.ajax": "github:DefinitelyTyped/DefinitelyTyped/microsoft-ajax/microsoft.ajax.d.ts#ae2581f4ce9d1b468089ea3d0652200d17e52af4",
+    "moment": "github:DefinitelyTyped/DefinitelyTyped/moment/moment.d.ts#b090bcf9ba9f756ec8ff53e7707269729172a325"
   }
 }

@@ -20,21 +20,7 @@ $susy: (
 	//,debug: (image: show)
 );
 
-@import "dcimain";
-
-#quickLaunchContainer {
-	display: none;
-}
-
-#s4-workspace {
-	display: block;
-	@include span(full);
-	@include cf;
-}
-
-#s4-bodyContainer {
-	@include cf;
-}
+@import "dcinoleftmenu";
 
 #inTheNewsTitleContainer {
 	background-color: $titleAndLogoBgColor;
@@ -49,71 +35,6 @@ $susy: (
 	}
 }
 
-#inTheNewsContainer {
-	@include span(full);
-	@include cf;
-}
-
-#inTheNewsContainer ul.cbs-List {
-	padding-left: 0;
-}
-
-#inTheNewsContainer ul.cbs-List li {
-	display: inline-block;
-	@include span(full);
-	@include cf;
-	margin-bottom: $topMenuSpaceSize;
-	padding-left: 0;
-	&:nth-child(odd){
-		background-color: $newsOddColor;
-	}
-
-	> div.dciNewsImgContainer {
-		@include breakpoint(max-width $tablet-1){
-			display: none;
-		}
-		@include breakpoint($tablet $desktop-1){
-			@include span(2 of 12);
-		}
-		@include breakpoint(min-width $desktop){
-			@include span(1 of 12);
-		}
-	}
-
-	> div.dciNewsTextContainer {
-		@include breakpoint(max-width $tablet-1){
-			@include span(full);
-		}
-		@include breakpoint($tablet $desktop-1){
-			@include span(10 of 12 last);
-		}
-		@include breakpoint(min-width $desktop){
-			@include span(11 of 12 last);
-		}
-		> div.dciNewsTitleContainer h1{
-			text-decoration: none;
-			color: $topNavBgColor;
-			font-size: $topNavFontSize;
-		}
-		> div.dciNewsContentContainer {
-			> div.dciNewsContentContainerMobile {
-				display: none;
-			}
-			> div.dciNewsContentContainerTablet {
-				display: none;
-				@include breakpoint($tablet $desktop-1) {
-					display: block;
-				}
-			}
-			> div.dciNewsContentContainerDesktop {
-				display: none;
-				@include breakpoint(min-width $desktop) {
-					display: block;
-				}
-			}
-		}
-	}
-}
 
 #callOutsContainer {
 	@include span(full);

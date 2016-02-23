@@ -1,0 +1,83 @@
+div.healthMattersItemContainer {
+	width: 100%;
+	text-align: center;
+
+	&:nth-child(odd){
+		background-color: $newsOddColor;
+	}
+
+	> h2.healthMattersStartDate {
+		color: $topNavBgColor;
+		font-size: $topNavFontSize;
+		font-weight: $topNavFontWeight + 300;
+	}
+
+	h1.healthMattersTitle {
+		color: $topNavBgColor;
+		font-size: $titleAndLogoFontSize;
+		font-weight: $topNavFontWeight + 300;
+	}
+
+	img.healthMattersImg {
+		height: auto;
+	}
+
+	div.healthMattersMessage {
+		margin-left: auto;
+		margin-right: auto;
+		color: $topNavBgColor;
+	}
+
+
+	@include breakpoint(max-width $tablet-1){
+		padding-top: $topMenuSpaceSize;
+		padding-bottom: $topMenuSpaceSize;
+		img.healthMattersImg {
+			width: 100%;
+		}
+		div.healthMattersMessage {
+			width: 100%;
+		}
+	}
+	@include breakpoint($tablet $tablet-l-1){
+		padding-top: 1.5*$topMenuSpaceSize;
+		padding-bottom: 1.5*$topMenuSpaceSize;
+		img.healthMattersImg {
+			width: 80%;
+		}
+		div.healthMattersMessage {
+			width: 80%;
+		}
+	}
+	@include breakpoint($tablet-l $desktop-1){
+		padding-top: 2.0*$topMenuSpaceSize;
+		padding-bottom: 2.0*$topMenuSpaceSize;
+		img.healthMattersImg {
+			width: 60%;
+		}
+		div.healthMattersMessage {
+			width: 60%;
+		}
+	}
+	@include breakpoint($desktop $desktop-l-1){
+		padding-top: 2.5*$topMenuSpaceSize;
+		padding-bottom: 2.5*$topMenuSpaceSize;
+		img.healthMattersImg {
+			width: 50%;
+		}
+		div.healthMattersMessage {
+			width: 50%;
+		}
+	}
+	@include breakpoint(min-width $desktop-l){
+		padding-top: 3.5*$topMenuSpaceSize;
+		padding-bottom: 3.5*$topMenuSpaceSize;
+		img.healthMattersImg {
+			width: 40%;
+		}
+		div.healthMattersMessage {
+			width: 40%;
+		}
+	}
+
+}
