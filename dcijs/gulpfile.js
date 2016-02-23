@@ -85,8 +85,8 @@ gulp.task('ts-compile', function(){
                 .pipe(gulp.dest(jsDir));
 });
 
-gulp.task('ts-compile-tests', function(){
-    var tsResult = gulp.src(['TSTESTS/*.ts'])
+gulp.task('ts-compile-singles', function(){
+    var tsResult = gulp.src(['TSNOCONCAT/*.ts'])
                        .pipe(ts(compilerOptions))
                        .js
                        .pipe(gulp.dest(jsDir));
@@ -164,7 +164,7 @@ gulp.task('uploadDisplayTemplates',['handlebars','uploadMasterPage'], function (
 
 gulp.task('watch', function() {
   gulp.watch('TS/*.ts', ['ts-compile']);
-  gulp.watch('TSTESTS/*.ts', ['ts-compile-tests']);
+  gulp.watch('TSNOCONCAT/*.ts', ['ts-compile-singles']);
   gulp.watch('handlebars/**/*.handlebars', ['uploadMasterPage','uploadDisplayTemplates']);
   gulp.watch('scss/**/*.{scss,sass}', ['sass']);
 });
@@ -174,4 +174,4 @@ gulp.task('watch', function() {
 
 gulp.task('copy-files',['bower-files', 'copy-js', 'copy-css', 'copy-html', 'copy-fonts']);
 
-gulp.task('default',['copy-files', 'sass', 'ts-compile','ts-compile-tests','uploadMasterPage','uploadDisplayTemplates']);
+gulp.task('default',['copy-files', 'sass', 'ts-compile','ts-compile-singles','uploadMasterPage','uploadDisplayTemplates']);

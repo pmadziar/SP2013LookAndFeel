@@ -1,12 +1,11 @@
 {
   "name": "dcijs",
-  "dependencies": {
-    "gulp": "github:typed-typings/npm-gulp#504da08753acdfe9dd2c415ab8fe36151e9645c1"
-  },
+  "dependencies": {},
   "devDependencies": {},
   "ambientDependencies": {
-    "SharePoint": "github:DefinitelyTyped/DefinitelyTyped/sharepoint/SharePoint.d.ts#3753596225f3bdee43a6299e00a44f84714f9ce9",
+    "SharePoint": "github:DefinitelyTyped/DefinitelyTyped/sharepoint/SharePoint.d.ts#d4c22e84601e2468dcc08e1e1288a0700658f9ce",
     "jquery": "github:DefinitelyTyped/DefinitelyTyped/jquery/jquery.d.ts#fab0b336b0414fac23963bde83f7d7077f6cf14c",
-    "node": "github:DefinitelyTyped/DefinitelyTyped/node/node.d.ts#aee0039a2d6686ec78352125010ebb38a7a7d743"
+    "lodash": "github:DefinitelyTyped/DefinitelyTyped/lodash/lodash.d.ts#7b7aa2027a8fb6219a8bcf1b6bb12bcd0ff9539d",
+    "microsoft.ajax": "github:DefinitelyTyped/DefinitelyTyped/microsoft-ajax/microsoft.ajax.d.ts#ae2581f4ce9d1b468089ea3d0652200d17e52af4"
   }
 }

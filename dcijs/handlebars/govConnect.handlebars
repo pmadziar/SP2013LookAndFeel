@@ -26,6 +26,8 @@ To build the master page directly from this HTML file, simply edit the page as y
             <!--SPM:<SharePoint:ProjectProperty Property="Title" runat="server"/>-->
             <!--SPM:</asp:ContentPlaceHolder>-->
         <!--ME:</SharePoint:PageTitle>-->
+        {{> jsDep}}
+
         <!--SPM:<SharePoint:StartScript runat="server"/>-->
         <!--MS:<SharePoint:CssLink runat="server" Version="15">-->
             <!--PS: Start Preview--><link href="http://govconnect/_layouts/15/1033/styles/Themable/corev15.css" rel="stylesheet" type="text/css" /><link href="http://govconnect/_layouts/15/1033/styles/OLD/Themable/layouts.css" rel="stylesheet" type="text/css" /><link href="http://govconnect/_layouts/15/1033/styles/Themable/searchv15.css" rel="stylesheet" type="text/css" /><!--PE: End Preview-->
@@ -84,7 +86,9 @@ To build the master page directly from this HTML file, simply edit the page as y
             <!-- Top Nav Hamburger -->
             <div id="topNavHamburger" class="ms-dialogHidden">
                 <span class="topNavHamburgerTitle">{{> spSiteTitle}}</span>
-                <span class="topNavHamburgerIcon"><i class="fa fa-bars"></i></span>
+                <span class="topNavHamburgerIcon">
+                    <a href="#" onclick="dcijs.Common.showHideNav(); return false;"><i class="fa fa-bars"></i></a>
+                </span>
             </div>
             <!-- Top Nav -->
             <div id="topNavContainer" data-name="TopNavigationNoFlyoutWithStartNode" class="ms-dialogHidden">
@@ -129,6 +133,10 @@ To build the master page directly from this HTML file, simply edit the page as y
         <!--SPM:<SharePoint:FormDigest runat="server"/>-->
         <!--SPM:</asp:ContentPlaceHolder>-->
         <!--SPM:</SharePoint:AjaxDelta>-->
-        {{> jsDep}}
+
+        <!--MS:<script type="text/javascript">-->
+        {{> includeJsScript scriptName="dciMp.js"}}
+        <!--ME:</script>-->
+
     </body>
 </html>
