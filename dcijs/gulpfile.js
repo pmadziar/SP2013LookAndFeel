@@ -38,6 +38,7 @@ var compilerOptions = require("./tsconfig.json").compilerOptions;
 
 // update version number and date for HB templates
 var hbData = require("./handlebars/handlebarsData.json");
+var handlebarsHelpers = require("./handlebars/handlebarsHelpers.js");
 
 hbData.date = moment().format("YYYY/MM/DD HH:mm:ss");
 var version = 0;
@@ -122,7 +123,8 @@ gulp.task('handlebars', function () {
     var templateData;
     var options = {
         ignorePartials: false,
-        batch : ['./handlebars/partials']
+        batch : ['./handlebars/partials'],
+        helpers : handlebarsHelpers.functions
     };
 
 
