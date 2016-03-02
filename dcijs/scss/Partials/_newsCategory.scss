@@ -8,14 +8,46 @@
         margin-left: auto;
         margin-right: auto;
     }
+    margin-bottom: $topMenuSpaceSize;
 }
 
 #title {
     @include span(full);
+    @include cf;
+    margin-bottom: $topMenuSpaceSize;
+    > div {
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+        font-size: $titleAndLogoFontSize;
+        font-weight: $topNavFontWeight + 300;
+    }
 }
 
 #message {
     @include span(full);
+    @include cf;
+    margin-bottom: $topMenuSpaceSize;
+    > div {
+        margin-left: auto;
+        margin-right: auto;
+        @include breakpoint(max-width $tablet-1){
+            width: 100%;
+        }
+        @include breakpoint($tablet $tablet-l-1){
+            width: 80%;
+        }
+        @include breakpoint($tablet-l $desktop-1){
+            width: 60%;
+        }
+        @include breakpoint($desktop $desktop-l-1){
+            width: 50%;
+        }
+        @include breakpoint(min-width $desktop-l){
+            width: 40%;
+        }
+    }
+
 }
 
 #news {

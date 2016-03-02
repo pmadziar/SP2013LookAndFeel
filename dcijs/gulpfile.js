@@ -70,6 +70,14 @@ gulp.task('copy-js', function() {
     return gulp.src('js/**/*.{js,map}').pipe(flatten()).pipe(gulp.dest(jsDir));
 });
 
+gulp.task('copy-aspx', function() {
+    return gulp.src('aspx/*.aspx').pipe(gulp.dest(buildDir));
+});
+
+gulp.task('copy-shgeneric', function() {
+    return gulp.src('/Source/github/shgeneric/Layouts/shgeneric/js/shgeneric.*').pipe(gulp.dest(jsDir));
+});
+
 
 gulp.task('copy-fonts', function() {
     return gulp.src('bower_components/font-awesome/fonts/*').pipe(gulp.dest(fontDir));
@@ -174,6 +182,6 @@ gulp.task('watch', function() {
 
 
 
-gulp.task('copy-files',['bower-files', 'copy-js', 'copy-css', 'copy-html', 'copy-fonts']);
+gulp.task('copy-files',['bower-files', 'copy-js', 'copy-css', 'copy-html', 'copy-fonts', 'copy-aspx', 'copy-shgeneric']);
 
 gulp.task('default',['copy-files', 'sass', 'ts-compile','ts-compile-singles','uploadMasterPage','uploadDisplayTemplates']);
