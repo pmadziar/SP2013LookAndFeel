@@ -179,9 +179,8 @@ gulp.task('watch', function() {
   gulp.watch('scss/**/*.{scss,sass}', ['sass']);
 });
 
-
-
+gulp.task ('upload',['default', 'uploadMasterPage','uploadDisplayTemplates']);
 
 gulp.task('copy-files',['bower-files', 'copy-js', 'copy-css', 'copy-html', 'copy-fonts', 'copy-aspx', 'copy-shgeneric']);
 
-gulp.task('default',['copy-files', 'sass', 'ts-compile','ts-compile-singles','uploadMasterPage','uploadDisplayTemplates']);
+gulp.task('default',['copy-files', 'sass', 'ts-compile','ts-compile-singles']);

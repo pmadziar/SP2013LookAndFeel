@@ -1,4 +1,5 @@
-/// <reference path="../typings/main.d.ts" />
+/// <reference path="../typings/tsd.d.ts" />
+/// <reference path='../CustomTypings/shgeneric.d.ts' />
 
 module dcijs {
 	export class Common {

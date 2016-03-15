@@ -23,11 +23,12 @@ $susy: (
 @import "dcinoleftmenu";
 
 #inTheNewsTitleContainer {
+	position: relative;
 	background-color: $titleAndLogoBgColor;
+	margin-top: 15px;
 	padding-top: $topMenuSpaceSize;
 	padding-bottom: $topMenuSpaceSize;
 	@include span(full);
-	@include cf;
 	> span {
 		color: $titleAndLogoTxtColor;
 		font-size: $topNavFontSize;
@@ -35,6 +36,12 @@ $susy: (
 	}
 }
 
+#WebPartZoneContainer {
+	@include span(full);
+	div.ms-webpartzone-cell {
+		margin-bottom: 5px !important;
+	}
+}
 
 #callOutsContainer {
 	@include span(full);
