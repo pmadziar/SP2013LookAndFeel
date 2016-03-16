@@ -1,8 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<package dslVersion="1.0.0.0" 
-        Id="3e57d4e0-2c62-4649-a7dc-88fd347e070c" 
-        solutionId="3e57d4e0-2c62-4649-a7dc-88fd347e070c" 
-        xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel" 
-        name="nova.gov.sp.dci"
-        sharePointProductVersion="15.0">
+<package xmlns:dm0="http://schemas.microsoft.com/VisualStudio/2008/DslTools/Core" dslVersion="1.0.0.0" Id="3e57d4e0-2c62-4649-a7dc-88fd347e070c" solutionId="3e57d4e0-2c62-4649-a7dc-88fd347e070c" resetWebServer="false" sharePointProductVersion="15.0" name="nova.gov.sp.dci" xmlns="http://schemas.microsoft.com/VisualStudio/2008/SharePointTools/PackageModel">
+  <projectItems>
+    <projectItemReference itemId="bab5074f-5940-4ebe-8952-790655abce46" />
+  </projectItems>
 </package>

@@ -4,6 +4,8 @@
 <%@ Import Namespace="Microsoft.SharePoint" %>
 <html>
 <head>
+<title>Create news page</title>
+<link rel="stylesheet" type="text/css" href="/_layouts/15/nova.gov.sp.dci/css/dci.css"/>
 <script  type="text/javascript"  src="/_layouts/15/MicrosoftAjax.js"></script>
 <script type="text/javascript" src="/_layouts/15/init.js"></script>
 <script type="text/javascript" src="/_layouts/15/1033/initstrings.js"></script>
@@ -21,21 +23,27 @@
 <script type="text/javascript" src="/_layouts/15/nova.gov.sp.dci/js/moment.js"></script>
 <script type="text/javascript" src="/_layouts/15/nova.gov.sp.dci/js/shgeneric.js"></script>
 <script type="text/javascript" src="/_layouts/15/nova.gov.sp.dci/js/dci.js"></script>
-<script type="text/javascript" src="/_layouts/15/nova.gov.sp.dci/js/createNewsPage.js"></script>
 </head>
 <body>
     <SharePoint:FormDigest ID="FormDigest1" runat="server"></SharePoint:FormDigest>
 	<fieldset>
-	<legend>Create new news page</legend>
-	<input type="radio" id="showGlobally"> <label for="showGlobally">Show on the start page</label>
-	<input type="text" id="title"> <label for="showGlobally">News title</label>
-	<select name="category">
-		<option selected="selected">Global</option>
-		<option>Human Resources</option>
-		<option>Spotlight</option>
-		<option>Around the Public Services</option>
-	</select>
-	<button type="submit" onclick="createNewsPageHelper.createNewsPage.createPage('test 01', 'Around the Public Services'); return false;">Create Page</button>
+		<legend>Create news page</legend>
+		<div>
+			<span>Show on the front page:&nbsp;&nbsp;&nbsp;&nbsp;<input type="checkbox" id="showGlobally" /></span>
+		</div>
+		<div>
+			<span>Title:&nbsp;&nbsp;&nbsp;&nbsp;<input type="text" id="title" size="40"></span>
+		</div>
+		<div>
+			<span>Category:&nbsp;&nbsp;&nbsp;&nbsp;<select name="category" id="category">
+			</select>
+			</span>
+		</div>
+		<div>
+			<input type="button" id="createPageSubmit" name="createPage" value="Create Page" />
+			<input type="button" id="createPageCancel" name="cancel" value="Cancel" />
+		</div>
 	</fieldset>
+	<script type="text/javascript" src="/_layouts/15/nova.gov.sp.dci/js/createNewsPage.js"></script>
 </body>
 </html>

@@ -17,7 +17,7 @@ var moment = require('moment');
 var gulpFilter = require('gulp-filter');
 
 
-var buildDir = "/Program Files/Common Files/microsoft shared/Web Server Extensions/15/TEMPLATE/LAYOUTS/nova.gov.sp.dci";
+var buildDir = "../nova.gov.sp.dci/Layouts/nova.gov.sp.dci";
 var jsDir = buildDir + "/js";
 var cssDir = buildDir + "/css";
 var fontDir = buildDir + "/fonts";

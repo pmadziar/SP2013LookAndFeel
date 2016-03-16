@@ -55,6 +55,16 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="key.snk" />
+    <None Include="Layouts\nova.gov.sp.dci\fonts\fontawesome-webfont.eot" />
+    <None Include="Layouts\nova.gov.sp.dci\fonts\fontawesome-webfont.ttf" />
+    <None Include="Layouts\nova.gov.sp.dci\fonts\fontawesome-webfont.woff" />
+    <None Include="Layouts\nova.gov.sp.dci\fonts\fontawesome-webfont.woff2" />
+    <None Include="Layouts\nova.gov.sp.dci\fonts\FontAwesome.otf" />
+    <None Include="Layouts\nova.gov.sp.dci\js\dci.js.map" />
+    <None Include="Layouts\nova.gov.sp.dci\js\shgeneric.js.map" />
+    <None Include="Layouts\SharePointProjectItem.spdata">
+      <SharePointProjectItemId>{bab5074f-5940-4ebe-8952-790655abce46}</SharePointProjectItemId>
+    </None>
     <None Include="Package\Package.package">
       <PackageId>{3e57d4e0-2c62-4649-a7dc-88fd347e070c}</PackageId>
     </None>
@@ -64,6 +74,26 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Features\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Layouts\nova.gov.sp.dci\createNewsPage.aspx" />
+    <Content Include="Layouts\nova.gov.sp.dci\css\dci.css" />
+    <Content Include="Layouts\nova.gov.sp.dci\css\dcinoleftmenu.css" />
+    <Content Include="Layouts\nova.gov.sp.dci\css\dciwelcomepage.css" />
+    <Content Include="Layouts\nova.gov.sp.dci\fonts\fontawesome-webfont.svg" />
+    <Content Include="Layouts\nova.gov.sp.dci\js\callOutsJsLink.js" />
+    <Content Include="Layouts\nova.gov.sp.dci\js\createNewsPage.js" />
+    <Content Include="Layouts\nova.gov.sp.dci\js\dci.js" />
+    <Content Include="Layouts\nova.gov.sp.dci\js\dciMp.js" />
+    <Content Include="Layouts\nova.gov.sp.dci\js\healthMattersJsLink.js" />
+    <Content Include="Layouts\nova.gov.sp.dci\js\html5shiv.js" />
+    <Content Include="Layouts\nova.gov.sp.dci\js\jquery.js" />
+    <Content Include="Layouts\nova.gov.sp.dci\js\lodash.js" />
+    <Content Include="Layouts\nova.gov.sp.dci\js\moment.js" />
+    <Content Include="Layouts\nova.gov.sp.dci\js\newsPagesJsLink.js" />
+    <Content Include="Layouts\nova.gov.sp.dci\js\promise.js" />
+    <Content Include="Layouts\nova.gov.sp.dci\js\respond.src.js" />
+    <Content Include="Layouts\nova.gov.sp.dci\js\shgeneric.js" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <PropertyGroup>
