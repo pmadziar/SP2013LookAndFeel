@@ -66,7 +66,8 @@ module dcijs {
 
 					pageItem.set_item("Title", title);
 					pageItem.set_item("NewsCategory", cat); 
-					pageItem.set_item("ShowOnFrontPage", showOnFP);
+					pageItem.set_item("ShowOnFrontPage", showOnFP?true:false);
+					pageItem.set_item("ArticleStartDate", moment(new Date()).toISOString());
 					pageItem.update();
 					ctx.load(pageItem);
 					ctx.executeQueryAsync(
@@ -95,14 +96,11 @@ module dcijs {
 		public static Show = (): void => {
 			let options: SP.UI.DialogOptions = SP.UI.$create_DialogOptions();
 			options.url = _.trimEnd(_spPageContextInfo.siteServerRelativeUrl,'/') + "/_layouts/15/nova.gov.sp.dci/createNewsPage.aspx";
-			options.dialogReturnValueCallback = ():void => {
-				CreateNewsPage.Close();
-			}
 			SP.UI.ModalDialog.showModalDialog(options);
 		}
 
 		public static Close = (): void => {
-				SP.UI.ModalDialog.commonModalDialogClose(SP.UI.DialogResult.OK, null);
+			SP.UI.ModalDialog.commonModalDialogClose(SP.UI.DialogResult.OK, null);
 		};
 
 	}
