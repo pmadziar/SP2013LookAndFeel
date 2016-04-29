@@ -1,30 +1,30 @@
 /// <reference path="Common.ts" />
 
 module dcijs {
-	export class CallOutsJsLink {
-		constructor() {
+    export class CallOutsJsLink {
+        constructor() {
 
-			let overrideCtx: SPClientTemplates.RenderContext = {};
-			overrideCtx.Templates = {};
+            let overrideCtx: SPClientTemplates.RenderContext = {};
+            overrideCtx.Templates = {};
 
-			overrideCtx.Templates.Header = `<div id="callOutsItemsContainer">`;
-			overrideCtx.Templates.Item = this.getItemHtml;
-			overrideCtx.Templates.Footer = '</div>';
+            overrideCtx.Templates.Header = `<div id="callOutsItemsContainer">`;
+            overrideCtx.Templates.Item = this.getItemHtml;
+            overrideCtx.Templates.Footer = '</div>';
 
-			//overrideCtx.BaseViewID = 1;
-			overrideCtx.ListTemplateType = 170;
+            //overrideCtx.BaseViewID = 1;
+            overrideCtx.ListTemplateType = 170;
 
-			SPClientTemplates.TemplateManager.RegisterTemplateOverrides(overrideCtx);
+            SPClientTemplates.TemplateManager.RegisterTemplateOverrides(overrideCtx);
 
-		};
-		private getItemHtml = (ctx: SPClientTemplates.RenderContext_ItemInView): string => {
+        };
+        private getItemHtml = (ctx: SPClientTemplates.RenderContext_ItemInView): string => {
             let callOutItemHtml = ``;
             let title = ctx.CurrentItem["Title"];
             let linkLocation = ctx.CurrentItem["LinkLocation"];
             let tileOrder = ctx.CurrentItem["TileOrder"];
             let backgroundImageLocation = ctx.CurrentItem["BackgroundImageLocation"];
-            let order = parseInt(tileOrder,10);
-            if(!isNaN(order) && order>=1 && order <= 5){
+            let order = parseInt(tileOrder, 10);
+            if (!isNaN(order) && order >= 1 && order <= 5) {
                 callOutItemHtml = `
 <div class="callOutItemContainer tileOrder${tileOrder}">
     <a href="${linkLocation}">
@@ -36,6 +36,6 @@ module dcijs {
 </div>`;
             }
             return callOutItemHtml;
-		};
-	}
+        };
+    }
 }
